@@ -1,0 +1,212 @@
+
+
+			
+			composer create-project --prefer-dist laravel/laravel:^11.0 larazillow11
+						
+			php -i | grep 'php.ini'
+
+			D:\XAMPP\php\php.ini
+
+			extension=fileinfo
+
+			extension=pdo_mysql
+
+			extension=zip
+
+			php -i | findstr 'php.ini'
+
+			code D:\XAMPP\php\php.ini
+
+ 
+
+
+			https://laravel.com/docs/11.x/vite#running-vite
+
+			npm install --save-dev @vitejs/plugin-vue
+
+			composer require inertiajs/inertia-laravel
+
+			
+			php artisan inertia:middleware
+
+			bootstrap->app.php		(// then do the changes)
+
+
+			// Install vue dependencies
+			npm install @inertiajs/vue3
+
+
+			vite.config.js
+
+			add template section of vue from document page 
+			https://laravel.com/docs/12.x/vite
+
+			vue({
+		        template: {
+	                transformAssetUrls: {
+	                    // The Vue plugin will re-write asset URLs, when referenced
+	                    // in Single File Components, to point to the Laravel web
+	                    // server. Setting this to `null` allows the Laravel plugin
+	                    // to instead re-write asset URLs to point to the Vite
+	                    // server instead.
+	                    base: null,
+	 
+	                    // The Vue plugin will parse absolute URLs and treat them
+	                    // as absolute paths to files on disk. Setting this to
+	                    // `false` will leave absolute URLs un-touched so they can
+	                    // reference assets in the public directory as expected.
+	                    includeAbsolute: false,
+	                },
+	            },
+	        }),
+
+
+	        //https://inertiajs.com/docs/v2/getting-started
+
+	        Install inertia dependency
+	        --------------------------
+	        composer require inertiajs/inertia-laravel
+
+
+	        Rename welcome.blade.php file into "app.blade.php" in view folder
+
+
+	        boottsrap/app.php
+	        -----------------
+	        //add below line from document page
+	         ->withMiddleware(function (Middleware $middleware) {
+		        $middleware->web(append:[
+		            HandleInertiaRequests::class,
+		        ]);
+		    })
+
+		    https://inertiajs.com/docs/v2/installation/client-side-setup
+		    
+		    Install vue3
+		    ------------
+		    npm install @inertiajs/vue3
+
+
+		    resources/js/app.js
+		    -------------------
+		    copy na paste the "Initialize the Inertia app"
+		    import { createApp, h } from 'vue'
+			import { createInertiaApp } from '@inertiajs/vue3'
+
+			createInertiaApp({
+			    resolve: name => {
+			        const pages = import.meta.glob('./Pages/**/*.vue', { eager: true })
+			        return pages[`./Pages/${name}.vue`]
+			    },
+			    setup({ el, App, props, plugin }) {
+			        createApp({ render: () => h(App, props) })
+			            .use(plugin)
+			            .mount(el)
+			    },
+			})
+
+
+			Inside  resources Create Pages and Index Folder then folder structure will be resources/js/Pages/Index/Index.vue
+
+
+			php artisan make:controller IndexController
+
+			php artisan route:list
+
+			npm install --save-dev eslint eslint-plugin-vue 
+
+
+			Section 6: Working with the databses
+
+				32. 	Laravel Debugger and IDE Helper
+
+				composer require barryvdh/laravel-debugbar --dev 
+
+				php artisan serve
+
+
+				composer require --dev barryvdh/laravel-ide-helper
+
+				php artisan ide-helper:generate
+
+				34.		Connecting to the database
+
+				docker-compose.yml
+
+				docker compose up
+
+				http://localhost:8080/
+
+				php artisan db:show
+
+				ORM : Object relational mapper
+
+				php artisan make:model Listing -m
+
+				php artisan migrate
+
+				php artisan make:migration add_fields_to_listings_table
+
+				php artisan migrate:status
+
+				php artisan migrate:rollback
+
+				//after doing the changes
+				php artisan migrate
+
+				37: Model Factories and Seeders
+				php artisan make:factory ListingFactory
+
+				php artisan db:seed
+				
+				//to rerun all migrations
+				php artisan migrate:refresh
+
+				38: Tinker
+				
+				composer dumpautoload
+
+				//used to interact with database using eloquent
+				php artisan tinker
+
+				App\Models\Listing::all()
+
+				php artisan make:controller --resource ListingController
+
+				php artisan route:list
+
+				
+				//reactive is used for objects
+
+				php artisan inertia:middleware
+
+				// ... $request->all()  	//array merge function that merges 2 array		
+
+
+				php artisan migrate:refresh --seed
+
+				section 6: 51:
+
+				composer require tightenco/ziggy
+				
+				section 7:
+
+				// https://tailwindcss.com/docs/installation/using-vite
+
+				npm install tailwindcss @tailwindcss/vite
+
+				npm install -D tailwindcss postcss autoprefixer
+
+
+				
+				npm install -D @tailwindcss/forms
+
+
+			// To run the application
+			-------------------------
+			php artisan serve
+
+			npm run dev
+
+			docker compose up
+
