@@ -5,7 +5,10 @@
 				<!-- <Link :href="`/listing/${listing.id}`"> -->
 				<!-- <Link :href="route('listing.show', listing.id)"> -->
 				<Link :href="route('listing.show', {listing: listing.id} )">
-					<ListingAddress :listing="listing" />
+
+					<Price :price="listing.price" class="text-2xl" />
+					<ListingSpace :listing="listing" class="text-lg"></ListingSpace>
+					<ListingAddress :listing="listing" class="text-gray-500"/>
 				</Link>
 			</div>
 			<div>
@@ -28,6 +31,8 @@
     import ListingAddress from '../../Components/ListingAddress.vue';
 	import { route } from 'ziggy-js';
 import Box from '@/Components/UI/Box.vue';
+import ListingSpace from '../../Components/ListingSpace.vue';
+import Price from '../../Components/Price.vue';
 
 	defineProps({
 		listings: Array
