@@ -197,9 +197,35 @@
 
 				npm install -D tailwindcss postcss autoprefixer
 
-
-				
 				npm install -D @tailwindcss/forms
+
+				section 9:
+
+				php artisan make:controller AuthController
+				
+				php artisan make:controller UserAccountController
+
+				php artisan make:middleware VerifyCsrfToken
+				
+				php artisan make:migration AddByUserIdColumnToListingsTable
+
+				// User::find(1)
+
+				php artisan make:policy ListingPolicy --model=Listing
+				
+				php artisan make:migration AddIsAdminColumnToUsersTable
+
+
+
+			//Commands used
+			
+			php artisan migrate:refresh --seed
+
+			php artisan optimize:clear
+
+			composer dump-autoload
+
+
 
 
 			// To run the application
