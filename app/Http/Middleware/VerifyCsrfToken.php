@@ -10,10 +10,11 @@ class VerifyCsrfToken extends Middleware
 {
 
     protected $except = [
-        '/logout'
+        '/logout',
+        // '/realtor/listing/*'
     ];
 
-    /**
+    /** 
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next

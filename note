@@ -91,7 +91,7 @@
 		    -------------------
 		    copy na paste the "Initialize the Inertia app"
 		    import { createApp, h } from 'vue'
-			import { createInertiaApp } from '@inertiajs/vue3'
+			import { createInertiaApp, Link } from '@inertiajs/vue3'
 
 			createInertiaApp({
 			    resolve: name => {
@@ -214,6 +214,39 @@
 				php artisan make:policy ListingPolicy --model=Listing
 				
 				php artisan make:migration AddIsAdminColumnToUsersTable
+
+				php artisan make:controller RealtorListingController
+
+				php artisan make:migration AddSoftDeletesToListingsTable
+
+				php artisan make:model ListingImage -m
+
+				php artisan storage:link
+
+				php artisan make:controller RealtorListingImageController
+
+
+
+
+				php artisan tinker
+
+				>>> $listing = Listing::find(1)
+
+				>>> $listing->delete()
+
+				>>> $listing->withTrashed()->where('id', 1)->get()
+
+				>>> $listing->withTrashed()->where('id', 1)->restore()
+
+				>>> Listing::find(1)->forceDelete()
+
+
+
+
+
+
+				
+
 
 
 

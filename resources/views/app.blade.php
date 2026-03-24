@@ -6,6 +6,8 @@
 
         <title>Laravel</title>
 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         @routes
         @vite('resources/js/app.js')
         @inertiaHead

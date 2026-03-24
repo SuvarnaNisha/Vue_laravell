@@ -162,7 +162,9 @@ class ListingController extends Controller
         //     abort(403);
         // }
         
-        $this->authorize('view', $listing);
+        // $this->authorize('view', $listing);
+
+        $listing->load(['images']);
 
         return inertia(
             'Listing/Show',
@@ -208,7 +210,9 @@ class ListingController extends Controller
      */
     public function destroy(Listing $listing)
     {
-        $listing->delete();
+        // $listing->delete();
+        // $listing->forceDelete();
+        $listing->deleteOrFail();
 
         return redirect()->back()->with('success', 'Listing was deleted!');
     }

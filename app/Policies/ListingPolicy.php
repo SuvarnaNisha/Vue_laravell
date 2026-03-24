@@ -14,10 +14,10 @@ class ListingPolicy
 
     public function before(?User $user, $ability)
     {
-        if($user && $user->is_admin /*&& $ability === 'update'*/ )
-        {
+        // if($user && $user->is_admin /*&& $ability === 'update'*/ )
+        // {
             return true;
-        }
+        // }
     }
 
     /**
@@ -49,7 +49,7 @@ class ListingPolicy
      */
     public function update(User $user, Listing $listing): bool
     {
-        return $user->id === $listing->by_user_id;
+        return true; //$user->id === $listing->by_user_id;
     }
 
     /**
@@ -57,7 +57,7 @@ class ListingPolicy
      */
     public function delete(User $user, Listing $listing): bool
     {
-        return $user->id === $listing->by_user_id;
+        return true; //$user->id === $listing->by_user_id;
     }
 
     /**
@@ -65,7 +65,7 @@ class ListingPolicy
      */
     public function restore(User $user, Listing $listing): bool
     {
-        return $user->id === $listing->by_user_id;
+        return true; //$user->id === $listing->by_user_id;
     }
 
     /**
@@ -73,6 +73,6 @@ class ListingPolicy
      */
     public function forceDelete(User $user, Listing $listing): bool
     {
-        return $user->id === $listing->by_user_id;
+        return true; //$user->id === $listing->by_user_id;
     }
 }
